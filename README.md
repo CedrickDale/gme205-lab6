@@ -84,3 +84,17 @@ The following tools were used:
    git add .
    git commit -m "Initialize Lab 6 spatial database modeling project"
    ```
+
+
+### Object-to-Persistence Decision Table
+
+| Object-Model Element | Persist? | Reason |
+|---|---|---|
+| Parcel: id, land_use, geometry | Yes | These attributes preserve the parcel's identity, land use, and spatial information. |
+| Parcel: area() | No | The parcel's area can be calculated directly from its stored geometry. |
+| Building: id, floors, geometry | Yes | These attributes preserve the building's identity, characteristics, and geometry. |
+| Building to Parcel relationship | Yes | The relationship must be maintained to identify which parcel contains the building. |
+| Road: id, road_class, geometry | Yes | These attributes preserve the road's identity, classification, and spatial information. |
+| SpatialRule: evaluate(parcel) | No | This method performs an assessment and does not represent permanent spatial data. |
+| HazardZone: severity | Yes | The severity classification should remain available for future hazard assessments even after the application stops running. |
+
