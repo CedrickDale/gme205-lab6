@@ -97,6 +97,7 @@ The following tools were used:
 | SpatialRule: evaluate(parcel) | No | This method performs an assessment and does not represent permanent spatial data. |
 | HazardZone: severity | Yes | The severity classification should remain available for future hazard assessments even after the application stops running. |
 
+
 ## Part F.2 — Reflection Questions
 
 ### 1. Name one attribute from your object model that became a database column. Why must it persist?
