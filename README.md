@@ -1,4 +1,5 @@
-# *GmE 205 Laboratory 6 — Introductory Spatial Database Modeling*
+
+# GmE 205 Laboratory 6 — Introductory Spatial Database Modeling
 
 The main objective of this laboratory activity is to convert the spatial object model into a relational database using PostgreSQL and PostGIS. This involves identifying persistent object states, translating objects into database tables, establishing primary and foreign key relationships, and storing spatial geometries while preserving the identity and relationships of each object.
 
@@ -17,15 +18,15 @@ The objectives of this laboratory are to:
 
 The following tools were used:
 
-- *PostgreSQL 18*
-- *PostGIS 3.6.2*
-- *pgAdmin 4*
-- *Visual Studio Code*
-- *Git*
-- *GitHub*
-- *SQL*
-- *diagrams.net*
-- *Python 3.x* (Optional)
+- **PostgreSQL 18**
+- **PostGIS 3.6.2**
+- **pgAdmin 4**
+- **Visual Studio Code**
+- **Git**
+- **GitHub**
+- **SQL**
+- **diagrams.net**
+- **Python 3.x** (Optional)
 
 ### Database Information
 
@@ -82,8 +83,7 @@ The following tools were used:
    git init
    git add .
    git commit -m "Initialize Lab 6 spatial database modeling project"
- 
-  ```
+   ```
 
 ### Object-to-Persistence Decision Table
 
@@ -97,7 +97,6 @@ The following tools were used:
 | SpatialRule: evaluate(parcel) | No | This method performs an assessment and does not represent permanent spatial data. |
 | HazardZone: severity | Yes | The severity classification should remain available for future hazard assessments even after the application stops running. |
 
-
 ## Part F.2 — Reflection Questions
 
 ### 1. Name one attribute from your object model that became a database column. Why must it persist?
@@ -110,7 +109,7 @@ The `Parcel.area()` method did not become a database column because it represent
 
 ### 3. How did the Building-to-Parcel object relationship become a relational relationship?
 
-The Building-to-Parcel relationship was implemented by adding `parcel_id` as a foreign key in the `buildings` table, referencing the `parcel_id` primary key in the `parcels` table. This establishes a one-to-many relationship where one parcel can contain multiple buildings, while each building is assigned to exactly one parcel. The relationship can be reconstructed using a SQL `JOIN`, and referential integrity is maintained through the foreign key constraint.
+The Building-to-Parcel relationship was implemented by adding `parcel_id` as a foreign key in the `buildings` table, referencing the `parcel_id` primary key in the `parcels` table. This establishes a one-to-many relationship where one parcel can have zero or multiple buildings, while each building must reference exactly one parcel. The relationship can be reconstructed using a SQL `JOIN`, and referential integrity is maintained through the foreign key constraint.
 
 ### 4. Why can Road proximity be discovered spatially instead of storing parcel_id in roads?
 
